@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mental Health Assessment</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+</head>
+<body>
 
+  <h1>Mental Health Self-Assessment</h1>
+
+  <form id="mentalForm" action="#" method="POST">
+    <!-- 1. Age -->
+    <div class="question">
+      <label for="age"><strong>1. What is your age?</strong></label>
+      <input type="number" id="age" name="age" min="10" max="100" required>
+    </div>
+
+    <!-- 2. Gender -->
+    <div class="question">
+      <p><strong>2. What is your gender?</strong></p>
+      <label><input type="radio" name="gender" value="Male"> Male</label>
+      <label><input type="radio" name="gender" value="Female"> Female</label>
+      <label><input type="radio" name="gender" value="Other"> Other</label>
+    </div>
+
+    <!-- 3. PHQ-9 -->
+    <div class="question">
+      <p><strong>3. Over the last 2 weeks, how often did you feel down or uninterested? (PHQ-9)</strong></p>
+      <label><input type="radio" name="phq9" value="0"> Never</label>
+      <label><input type="radio" name="phq9" value="1">Rarely</label>
+      <label><input type="radio" name="phq9" value="2">Frequently</label>
+      <label><input type="radio" name="phq9" value="3"> Nearly every day</label>
+    </div>
+
+    <!-- 4. GAD-7 -->
+    <div class="question">
+      <p><strong>4. How often did you feel nervous or anxious? (GAD-7)</strong></p>
+      <label><input type="radio" name="gad7" value="0"> Not at all</label>
+      <label><input type="radio" name="gad7" value="1"> Sometimes</label>
+      <label><input type="radio" name="gad7" value="2"> More than half the days</label>
+      <label><input type="radio" name="gad7" value="3"> Always</label>
+    </div>
+
+    <!-- 5. Depression -->
+    <div class="question">
+      <p><strong>5. How often did you feel hopeless or lack interest in life? (DASS21 Depression)</strong></p>
+      <label><input type="radio" name="depression" value="0">Never</label>
+      <label><input type="radio" name="depression" value="1">Sometimes</label>
+      <label><input type="radio" name="depression" value="2">Frequently </label>
+      <label><input type="radio" name="depression" value="3">Almost every time</label>
+    </div>
+
+    <!-- 6. Anxiety -->
+    <div class="question">
+      <p><strong>6. How often did you feel scared or panicked? (DASS21 Anxiety)</strong></p>
+      <label><input type="radio" name="anxiety" value="0">Never felt</label>
+      <label><input type="radio" name="anxiety" value="1">Sometimes</label>
+      <label><input type="radio" name="anxiety" value="2">Frequently </label>
+      <label><input type="radio" name="anxiety" value="3">Most of the time</label>
+    </div>
+
+    <!-- 7. Stress -->
+    <div class="question">
+      <p><strong>7. How often did you feel stressed or unable to relax? (DASS21 Stress)</strong></p>
+      <label><input type="radio" name="stress" value="0">Never</label>
+      <label><input type="radio" name="stress" value="1">Sometimes</label>
+      <label><input type="radio" name="stress" value="2">Often</label>
+      <label><input type="radio" name="stress" value="3">Most of the time</label>
+    </div>
+
+    <!-- 8. Mood -->
+    <div class="question">
+      <label for="mood"><strong>8. How would you rate your current mood on a scale of 0 (worst) to 10 (best)?</strong></label>
+      <input type="range" id="mood" name="mood_score" min="0" max="10">
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Popup result display -->
+  <div id="resultPopup" class="popup">
+    <div class="popup-content">
+      <span id="closePopup" class="close-btn">&times;</span>
+      <p id="resultText"></p>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+  
+  <!-- Helpline Section -->
+  <footer class="helpline-section">
+  <h2>Need Help?</h2>
+  <p>If you're feeling anxious, overwhelmed, or struggling emotionally, please reach out.</p>
+
+  <ul>
+    <li><strong>🇮🇳 iCall (TISS):</strong> +91 9152987821 (8am–10pm, all days)</li>
+    <li><strong>AASRA:</strong> +91 9820466726 (24×7 suicide prevention helpline)</li>
+    <li><strong>Vandrevala Foundation:</strong> 1860 266 2345 / 9999 666 555</li>
+    <li><strong>Fortis Mental Health Helpline:</strong> +91 8376804102</li>
+    <li><strong>More resources:</strong> <a href="https://icallhelpline.org/" target="_blank">icallhelpline.org</a></li>
+  </ul>
+
+  <p class="disclaimer">This app is not a substitute for medical or psychological help. If you are in danger or crisis, please seek immediate support from professionals or trusted individuals.</p>
+  </footer>
+</body>
+</html>
