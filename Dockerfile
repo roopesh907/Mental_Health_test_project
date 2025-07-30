@@ -1,21 +1,18 @@
-# Use a stable base image with Python 3.10
+# Use Python base image
 FROM python:3.10-slim
 
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y gcc
+# Install dependencies
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
+# Copy rest of the app
 COPY . .
 
-# Install Python dependencies
-RUN pip install --upgrade pip setuptools wheel
-RUN pip install -r requirements.txt
+# Expose the port Render expects
+EXPOSE 8080
 
-# Expose port for Render
-EXPOSE 10000
-
-# Start your app
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:10000"]
+# Run the app
+CMD ["python", "app.py"]
